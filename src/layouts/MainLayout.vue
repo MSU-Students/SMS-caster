@@ -3,7 +3,7 @@
     <q-header elevated class="bg-indigo-10">
       <q-toolbar>
         <q-btn icon="menu" flat round size="sm"></q-btn>
-        <q-toolbar-title>SMS CASTER</q-toolbar-title>
+        <q-toolbar-title>SMS CASTER SYSTEM SYSTEM SYSTEM</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
