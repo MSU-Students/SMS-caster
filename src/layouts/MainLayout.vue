@@ -1,6 +1,6 @@
 <template>
   <q-layout>
-    <q-header elevated class="bg-indigo-10">
+    <q-header elevated class="bg-red-10">
       <q-toolbar>
         <q-btn icon="menu" flat round size="sm"></q-btn>
         <q-toolbar-title>SMS CASTER SYSTEM SYSTEM SYSTEM</q-toolbar-title>
