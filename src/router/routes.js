@@ -1,10 +1,22 @@
+import MainLayout from "src/layouts/MainLayout.vue";
+import mainpage from "src/pages/mainpage.vue";
+import login from "src/pages/login.vue";
 
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: MainLayout,
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      {
+        path: "",
+        component: mainpage
+      },
+
+      {
+        path: "login",
+        name: "login-page",
+        component: login
+      }
     ]
   },
 
