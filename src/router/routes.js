@@ -1,6 +1,9 @@
 import MainLayout from "src/layouts/MainLayout.vue";
-import mainpage from "src/pages/mainpage.vue";
+import homePage from "src/pages/homePage.vue";
 import login from "src/pages/login.vue";
+import ManageAccount from "src/pages/ManageAccount.vue";
+import ManageDocument from "src/pages/ManageDocument.vue";
+import ManageContact from "src/pages/ManageContact.vue";
 
 const routes = [
   {
@@ -9,13 +12,32 @@ const routes = [
     children: [
       {
         path: "",
-        component: mainpage
+        name: "homepage",
+        component: homePage
       },
 
       {
         path: "login",
         name: "login-page",
         component: login
+      },
+
+      {
+        path: "ManageAccount",
+        name: "manageaccount-page",
+        component: ManageAccount
+      },
+
+      {
+        path: "ManageDocument",
+        name: "managedocument-page",
+        component: ManageDocument
+      },
+
+      {
+        path: "ManageContact",
+        name: "managecontact-page",
+        component: ManageContact
       }
     ]
   },

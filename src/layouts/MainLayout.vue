@@ -50,17 +50,17 @@
       bordered
       content-class="bg-white"
     >
-      <q-item clickable v-ripple>
+      <q-item clickable v-ripple to="/" exact>
         <q-item-section avatar>
           <q-icon name="dashboard" size="md" />
         </q-item-section>
 
-        <q-item-section class="text-subtitle2t="> 
-          Dashboard 
+        <q-item-section class="text-subtitle2"> 
+          Home 
         </q-item-section>
       </q-item>
 
-      <q-item clickable v-ripple>
+      <q-item clickable v-ripple to="/ManageContact" exact>
         <q-item-section avatar>
           <q-icon name="contacts" size="md" />
         </q-item-section>
@@ -69,7 +69,7 @@
         </q-item-section>
       </q-item>
 
-      <q-item clickable v-ripple>
+      <q-item clickable v-ripple to="/ManageDocument" exact>
         <q-item-section avatar>
           <q-icon name="topic" size="md" />
         </q-item-section>
@@ -78,7 +78,7 @@
         </q-item-section>
       </q-item>
 
-      <q-item clickable v-ripple>
+      <q-item clickable v-ripple to="/ManageAccount" exact>
         <q-item-section avatar>
           <q-icon name="manage_accounts" size="md" />
         </q-item-section>
@@ -87,7 +87,9 @@
         </q-item-section>
       </q-item>
     </q-drawer>
-    <q-footer elevated class="bg-red-10">
+    <q-footer 
+      elevated class="bg-red-10" 
+      v-if="$route.name != 'homepage'">
       <q-toolbar>
         <q-toolbar-title class="text-subtitle2 text-center">Copyrights 2021</q-toolbar-title>
       </q-toolbar>
