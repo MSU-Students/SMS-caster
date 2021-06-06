@@ -89,7 +89,7 @@
     </q-drawer>
     <q-footer 
       elevated class="bg-red-10" 
-      v-if="$route.name != 'homepage'">
+      v-if="$route.name == 'login-page'">
       <q-toolbar>
         <q-toolbar-title class="text-subtitle2 text-center">Copyrights 2021</q-toolbar-title>
       </q-toolbar>
