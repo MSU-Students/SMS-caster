@@ -8,13 +8,13 @@
           width="350px"
           src="~assets/msu-logo.png"
         />
-        <q-card>
+        <q-card class="q-ml-xlm">
           <div class="text-subtitle2 text-center q-ma-lg">
             Mindanao State University - Marawi City
             <br />
-            Office of Information Press and Publication
-            <br /> <br/>
-            Definition dito Definition dito Definition dito Definition dito
+            Office of Information, Press and Publication
+            <br /><br />
+            {{ definition }}
           </div>
         </q-card>
       </div>
@@ -24,8 +24,9 @@
             <q-input
               v-model="user.username"
               outlined
-              label="Username"
+              label="ID Number"
               bg-color="white"
+              mask="#########"
               color="black"
               ><template v-slot:prepend> <q-icon name="person"/></template>
             </q-input>
@@ -66,24 +67,68 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import { mapState } from 'vuex';
 
 interface User {
   username: string;
   password: string;
 }
-@Component({})
+
+interface Officers {
+  name: string;
+  firstName: string;
+  lastName: string;
+  contactNumber: string;
+  password: string;
+  accountType: string;
+}
+
+@Component({
+  computed: {
+    ...mapState('officer', ['officers'])
+  }
+})
 export default class Login extends Vue {
+  officers!: Officers[];
   user: User = {
     username: '',
     password: ''
   };
   hidePassword = false;
+  definition = `Office of Information, Press and Publication was republished in the year 1970, dated August 15, 
+        1970 it was an office recommended by the president and successfully approved during that time, 
+        until now Office of Information, Press and Publications is under the command of the Office of the President.`;
 
   async login(): Promise<void> {
-    if (this.user.username == 'abs' && this.user.password == 'abs') {
+    if (
+      this.officers.find(
+        o =>
+          this.user.password == o.password &&
+          this.user.username == o.name &&
+          o.accountType == 'Admin'
+      )
+    ) {
+      this.$q.notify({
+        type: 'success',
+        message: 'Logged in as Admin'
+      });
+      await this.$store.dispatch('uiNav/isAdminLogin', true);
+      await this.$router.push('/');
+    } else if (
+      this.officers.find(
+        o =>
+          this.user.password == o.password &&
+          this.user.username == o.name &&
+          o.accountType == 'Logged in as Officer'
+      )
+    ) {
+      this.$q.notify({
+        type: 'success',
+        message: 'Officer'
+      });
+      await this.$store.dispatch('uiNav/isAdminLogin', false);
       await this.$router.push('/');
     } else {
-      // alert("Invalid Username or Password");
       this.$q.notify({
         type: 'warning',
         message: 'Invalid Username or Password.'

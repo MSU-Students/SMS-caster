@@ -78,7 +78,7 @@
         </q-item-section>
       </q-item>
 
-      <q-item clickable v-ripple to="/ManageAccount" exact>
+      <q-item v-if="adminLoggedIn" clickable v-ripple to="/ManageAccount" exact>
         <q-item-section avatar>
           <q-icon name="manage_accounts" size="md" />
         </q-item-section>
@@ -92,33 +92,34 @@
         <q-toolbar-title class="text-subtitle2 text-center">
           <div class="row">
             <div class="col-3">
-              <q-card class="q-ma-sm bg-light-blue-10" >Mission</q-card>
+              <q-card flat bordered class="q-ma-sm bg-white text-black">Mission</q-card>
             </div>
             <div class="col-3">
-              <q-card class="q-ma-sm bg-light-blue-10" >Vision</q-card>
+              <q-card flat bordered class="q-ma-sm bg-white text-black">Vision</q-card>
             </div>
             <div class="col-3">
-              <q-card class="q-ma-sm bg-light-blue-10" >Objectives</q-card>
+              <q-card flat bordered class="q-ma-sm bg-white text-black">Objectives</q-card>
             </div>
             <div class="col-3">
-              <q-card class="q-ma-sm bg-light-blue-10" >Goals</q-card>
+              <q-card flat bordered class="q-ma-sm bg-white text-black">Goals</q-card>
             </div>
           </div>
-           <div class="row">
+          <div class="row">
             <div class="col-3">
-              <q-card class="q-mx-xs bg-yellow-5 text-black" >Mission</q-card>
+              <q-card class="q-mx-xs bg-yellow-5 text-black">Mission</q-card>
             </div>
             <div class="col-3">
-              <q-card class="q-mx-xs bg-yellow-5 text-black" >Vision</q-card>
+              <q-card class="q-mx-xs bg-yellow-5 text-black">Vision</q-card>
             </div>
             <div class="col-3">
-              <q-card class="q-mx-xs bg-yellow-5 text-black" >Objectives</q-card>
+              <q-card class="q-mx-xs bg-yellow-5 text-black">Objectives</q-card>
             </div>
             <div class="col-3">
               <q-card class="q-mx-xs bg-yellow-5 text-black">Goals</q-card>
             </div>
           </div>
-          All rights reserved 2021 MSU-CIT<br/>Developed by <br>Mosaab S. Talib</q-toolbar-title
+          All rights reserved 2021 MSU-CIT<br />Developed by <br />Mosaab S.
+          Talib</q-toolbar-title
         >
       </q-toolbar>
     </q-footer>
@@ -128,3 +129,17 @@
     </q-page-container>
   </q-layout>
 </template>
+
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+import { mapState } from 'vuex';
+
+@Component({
+  computed: {
+    ...mapState('uiNav', ['adminLoggedIn'])
+  }
+})
+export default class MainLayout extends Vue {
+  adminLoggedIn!: boolean;
+}
+</script>

@@ -3,6 +3,10 @@ import Vuex from 'vuex';
 
 import recipient from './recipient-module';
 import { RecipientStateInterface } from './recipient-module/state';
+import officer from './officer-module';
+import { OfficerStateInterface } from './officer-module/state';
+import uiNav from './ui-navigation-module';
+import { UINavModule } from './ui-navigation-module/state';
 
 /*
  * If not building with SSR mode, you can
@@ -14,14 +18,18 @@ export interface StateInterface {
   // example: ExampleStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
   recipient: RecipientStateInterface;
+  officer: OfficerStateInterface;
+  uiNav: UINavModule;
 }
 
-export default store(function ({ Vue }) {
+export default store(function({ Vue }) {
   Vue.use(Vuex);
 
   const Store = new Vuex.Store<StateInterface>({
     modules: {
-      recipient
+      recipient,
+      officer,
+      uiNav
     },
 
     // enable strict mode (adds overhead!)

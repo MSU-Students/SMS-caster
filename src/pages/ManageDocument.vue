@@ -13,16 +13,16 @@
       <q-table 
         title="Documents" 
         :columns="columns" 
-        row-key="Name">
+        row-key="name">
          </q-table>
     </div>
   </q-page>
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 
-// @Component()
+@Component({})
 export default class ManageDocument extends Vue {
   columns = [
     {
@@ -33,17 +33,20 @@ export default class ManageDocument extends Vue {
     {
       name: 'file',
       label: 'File',
-      align: 'left'
+      align: 'left',
+      field: 'file'
     },
     {
       name: 'type',
       label: 'Document Type',
-      align: 'left'
+      align: 'left',
+      field: 'type'
     },
     {
       name: 'status',
       label: 'Status',
-      align: 'left'
+      align: 'left',
+      field: 'status'
     }
   ];
 }
