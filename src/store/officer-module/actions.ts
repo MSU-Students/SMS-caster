@@ -18,6 +18,9 @@ const actions: ActionTree<OfficerStateInterface, StateInterface> = {
   async updateOfficer({}, payload): Promise<any> {
     await officerService.update(payload);
   },
+  async deleteOfficer({}, payload): Promise<any> {
+    await officerService.delete(payload);
+  },
 };
 
 export default actions;

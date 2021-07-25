@@ -28,6 +28,12 @@ class OfficerService extends OfficerControllerApi {
     console.log(response)
     return response.data;
   }
+  async delete(payload: IOfficer) {
+    const response = await restApi.deleteOfficer(payload._id as string, payload);
+    console.log(response)
+    return response.data;
+  }
+
 }
 
 const documentService = new OfficerService();

@@ -39,7 +39,7 @@
         <template v-slot:body="props">
           <q-tr :props="props">
             <q-td v-for="col in props.cols" :key="col.name" :props="props">
-              {{ col.value }}
+                {{ col.value }}
             </q-td>
             <q-td auto-width>
               <q-btn
@@ -71,10 +71,12 @@
                 dense
                 class="q-mr-sm"
                 :color="props.row.smsStatus ? 'red' : 'green'"
-                :disable="props.row.smsStatus"
                 @click="sendMessage(props.row)"
               >
-                <q-tooltip>Send Message</q-tooltip>
+                <q-tooltip>
+                  <span v-if="!props.row.smsStatus">Send Message</span>
+                  <span v-else>Already sent!</span>
+                </q-tooltip>
               </q-btn>
             </q-td>
           </q-tr>

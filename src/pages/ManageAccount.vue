@@ -52,17 +52,18 @@
                 class="q-mr-sm"
                 @click="editOfficer(props.row)"
               >
-                <q-tooltip>Edit Document</q-tooltip>
+                <q-tooltip>Update Officer</q-tooltip>
               </q-btn>
               <q-btn
                 size="sm"
                 color="green"
-                icon="archive"
+                icon="delete"
                 round
                 dense
-                class="q-mr-sm"              
+                class="q-mr-sm"   
+                @click="deleteAccount(props.row)"           
               >
-                <q-tooltip>Archive Officer</q-tooltip>
+                <q-tooltip>Delete Officer</q-tooltip>
               </q-btn>              
             </q-td>
           </q-tr>
@@ -158,6 +159,9 @@ export default class ManageAccount extends Vue {
   }
   editOfficer(officer: IOfficer) {
     this.officer = { ...officer, onUpdate: true };
+    this.addAccountPopups(true);
+  }
+  deleteAccount(officer: IOfficer){
     this.addAccountPopups(true);
   }
 }

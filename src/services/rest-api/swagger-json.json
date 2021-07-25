@@ -412,8 +412,8 @@
       },
       "delete": {
         "tags": ["officer-controller"],
-        "summary": "Delete",
-        "operationId": "DeleteUsingDELETE_1",
+        "summary": "Delete this officer",
+        "operationId": "deleteOfficer",
         "produces": ["*/*"],
         "parameters": [
           {
@@ -545,7 +545,7 @@
       "delete": {
         "tags": ["recipient-controller"],
         "summary": "Delete",
-        "operationId": "DeleteUsingDELETE_2",
+        "operationId": "DeleteUsingDELETE_1",
         "produces": ["*/*"],
         "parameters": [
           {

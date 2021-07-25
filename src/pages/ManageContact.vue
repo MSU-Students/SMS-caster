@@ -95,6 +95,7 @@
                   dense
                   style="min-width: 150px"
                   class="q-mb-md"
+                  @click="exportTable"
                 >
                 </q-btn>
               </div>
@@ -308,6 +309,7 @@ export default class ManageContact extends Vue {
     await this.filterInstitution(institution);
     this.data = this.newRecipients;
   }
+  
 }
 </script>
 

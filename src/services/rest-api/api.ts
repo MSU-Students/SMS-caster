@@ -1364,14 +1364,14 @@ export const OfficerControllerApiAxiosParamCreator = function (configuration?: C
         },
         /**
          * 
-         * @summary Delete
+         * @summary Delete this officer
          * @param {string} id id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUsingDELETE1: async (id: string, options: any = {}): Promise<RequestArgs> => {
+        deleteOfficer: async (id: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteUsingDELETE1', 'id', id)
+            assertParamExists('deleteOfficer', 'id', id)
             const localVarPath = `/sms-api/officer/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1523,13 +1523,13 @@ export const OfficerControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Delete
+         * @summary Delete this officer
          * @param {string} id id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUsingDELETE1(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUsingDELETE1(id, options);
+        async deleteOfficer(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOfficer(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1587,13 +1587,13 @@ export const OfficerControllerApiFactory = function (configuration?: Configurati
         },
         /**
          * 
-         * @summary Delete
+         * @summary Delete this officer
          * @param {string} id id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUsingDELETE1(id: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteUsingDELETE1(id, options).then((request) => request(axios, basePath));
+        deleteOfficer(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteOfficer(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1649,14 +1649,14 @@ export class OfficerControllerApi extends BaseAPI {
 
     /**
      * 
-     * @summary Delete
+     * @summary Delete this officer
      * @param {string} id id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OfficerControllerApi
      */
-    public deleteUsingDELETE1(id: string, options?: any) {
-        return OfficerControllerApiFp(this.configuration).deleteUsingDELETE1(id, options).then((request) => request(this.axios, this.basePath));
+    public deleteOfficer(id: string, options?: any) {
+        return OfficerControllerApiFp(this.configuration).deleteOfficer(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1746,9 +1746,9 @@ export const RecipientControllerApiAxiosParamCreator = function (configuration?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUsingDELETE2: async (id: string, options: any = {}): Promise<RequestArgs> => {
+        deleteUsingDELETE1: async (id: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteUsingDELETE2', 'id', id)
+            assertParamExists('deleteUsingDELETE1', 'id', id)
             const localVarPath = `/sms-api/recipient/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1905,8 +1905,8 @@ export const RecipientControllerApiFp = function(configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUsingDELETE2(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUsingDELETE2(id, options);
+        async deleteUsingDELETE1(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUsingDELETE1(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1969,8 +1969,8 @@ export const RecipientControllerApiFactory = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUsingDELETE2(id: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteUsingDELETE2(id, options).then((request) => request(axios, basePath));
+        deleteUsingDELETE1(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteUsingDELETE1(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2032,8 +2032,8 @@ export class RecipientControllerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecipientControllerApi
      */
-    public deleteUsingDELETE2(id: string, options?: any) {
-        return RecipientControllerApiFp(this.configuration).deleteUsingDELETE2(id, options).then((request) => request(this.axios, this.basePath));
+    public deleteUsingDELETE1(id: string, options?: any) {
+        return RecipientControllerApiFp(this.configuration).deleteUsingDELETE1(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
